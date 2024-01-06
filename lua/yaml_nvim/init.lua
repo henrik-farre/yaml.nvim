@@ -10,8 +10,7 @@ local is_yaml = function()
 		end
 	end
 
-	return true
-	-- return false
+	return false
 end
 
 local set_yaml_as_filetype = function()
