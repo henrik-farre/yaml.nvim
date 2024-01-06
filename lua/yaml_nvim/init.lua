@@ -10,7 +10,8 @@ local is_yaml = function()
 		end
 	end
 
-	return false
+	return true
+	-- return false
 end
 
 local set_yaml_as_filetype = function()
@@ -36,7 +37,7 @@ local get_current_yaml_node = function()
 		return
 	end
 
-	local restore_to = set_yaml_as_filetype()
+	-- local restore_to = set_yaml_as_filetype()
 
 	local node = document.get_key_relevant_to_cursor()
 	if node == nil then
@@ -44,7 +45,7 @@ local get_current_yaml_node = function()
 	end
 	local parsed = pair.parse(node)
 
-	restore_filetype(restore_to)
+	-- restore_filetype(restore_to)
 
 	return parsed
 end
@@ -140,7 +141,7 @@ M.quickfix = function()
 		return
 	end
 
-	local restore_to = set_yaml_as_filetype()
+	-- local restore_to = set_yaml_as_filetype()
 	local lines = {}
 
 	for _, key in pairs(document.all_keys()) do
@@ -150,7 +151,7 @@ M.quickfix = function()
 		end
 	end
 
-	restore_filetype(restore_to)
+	-- restore_filetype(restore_to)
 	vim.fn.setqflist(lines)
 end
 

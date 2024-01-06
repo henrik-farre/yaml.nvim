@@ -32,7 +32,8 @@ end
 
 M.all_keys = function()
 	local bufnr = vim.api.nvim_get_current_buf()
-	local ft = vim.api.nvim_buf_get_option(bufnr, "ft")
+	-- local ft = vim.api.nvim_buf_get_option(bufnr, "ft")
+	local ft = "yaml"
 	local tree = vim.treesitter.get_parser(bufnr, ft):parse()[1]
 	local root = tree:root()
 	return get_keys(root)
